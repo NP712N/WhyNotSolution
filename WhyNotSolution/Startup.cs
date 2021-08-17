@@ -9,8 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WhyNotSolution.Extensions;
 using WhyNotSolution.Models.Database;
 using WhyNotSolution.Repository;
+using WhyNotSolution.Repository.PostService;
 using WhyNotSolution.Repository.RoleService;
 
 namespace WhyNotSolution
@@ -29,7 +31,7 @@ namespace WhyNotSolution
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<SolutionDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WhyNotSolution")));
-            services.AddTransient<IRoleRepository, RoleManagement>();
+            services.ConfigureRepositoryManager();
 
             services.AddControllersWithViews();
             services.AddSwaggerGen();

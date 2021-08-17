@@ -16,7 +16,7 @@ namespace WhyNotSolution.Repository.RoleService {
             SolutionDbContext = solutionDbContext;
         }
 
-        public int Create(RoleEntity entity)
+        public int Create(RoleDTO entity)
         {
             throw new NotImplementedException();
         }

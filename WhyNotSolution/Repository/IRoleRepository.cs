@@ -6,5 +6,5 @@ using WhyNotSolution.Models.DataMapper;
 using WhyNotSolution.Models.EF;
 
 namespace WhyNotSolution.Repository {
-    public interface IRoleRepository : IRepository<RoleEntity> { }
+    public interface IRoleRepository : IRepository<RoleEntity, RoleDTO> { }
 }
