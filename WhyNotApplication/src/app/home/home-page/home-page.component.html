@@ -1,8 +1,8 @@
-<ul>
-  <ng-container *ngFor="let item of dataSource">
-    <li>
-      {{item.title}} - {{item.content}}
-    </li>
-  </ng-container>
-
-</ul>
+<div fxLayout="column" class="home-page">
+  <div class="home-page-header" style="background-color: aqua;">
+    <what-hub-header></what-hub-header>
+  </div>
+  <div class="home-page-content">
+    <what-hub-content></what-hub-content>
+  </div>
+</div>

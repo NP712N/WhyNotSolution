@@ -19,6 +19,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BaseComponent } from './shared/component/base/base.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HomeModule } from './home/home.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { HomeModule } from './home/home.module';
     MatDialogModule,
     MatProgressBarModule,
     ToastrModule.forRoot(),
+    FlexLayoutModule,
     HomeModule
   ],
   providers: [],
