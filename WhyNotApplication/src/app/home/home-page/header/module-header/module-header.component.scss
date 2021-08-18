@@ -1,0 +1,21 @@
+.module-header {
+  display: inline-flex;
+  background-color: #dde0e4;
+  height: 20px;
+  padding-bottom: 10px !important;
+  width: 70px;
+  cursor: pointer; 
+  border-radius: 4px;
+  padding-top: 5px !important;
+  
+  mat-icon {
+    width: 100%;
+    text-align: center;
+    color: #84d0c5;
+  }
+}
+
+.module-header:hover, .active {
+  background-color: #929292;
+  transition: 0.3s;
+}
