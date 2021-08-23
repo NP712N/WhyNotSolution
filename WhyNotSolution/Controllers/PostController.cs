@@ -22,6 +22,12 @@ namespace WhyNotSolution.Controllers {
             return Ok(list);
         }
 
+        [HttpGet("getBriefPosts")]
+        public IActionResult GetBriefPosts() {
+            var list = PostRepository.GetBriefPosts();
+            return Ok(list);
+        }
+
         [HttpGet("{id}", Name = "GetPost")]
         public IActionResult GetPost(int id) {
             var post = PostRepository.GetById(id);
@@ -30,6 +36,26 @@ namespace WhyNotSolution.Controllers {
             }
 
             return Ok(post);
+        }
+
+        [HttpGet("{id}/getBriefPost", Name = "GetBriefPost")]
+        public IActionResult GetBriefPost(int id) {
+            var post = PostRepository.GetBriefPost(id);
+            if (post == null) {
+                return NotFound();
+            }
+
+            return Ok(post);
+        }
+
+        [HttpGet("{id}/getContent", Name = "GetContent")]
+        public IActionResult GetContent(int id) {
+            var content = PostRepository.GetContent(id);
+            if (content == null) {
+                return NotFound();
+            }
+
+            return Ok(new JsonResult(content));
         }
 
         [HttpPost]

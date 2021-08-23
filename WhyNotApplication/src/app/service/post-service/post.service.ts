@@ -8,12 +8,16 @@ import { ApiService } from 'src/app/shared/service/api/api.service';
 })
 export class PostService {
 
-  readonly _baseAPIControl = 'Post';
+  readonly _baseAPIControl = 'Post/';
 
   constructor(private readonly _apiService: ApiService) {
   }
 
-  getPosts(): Observable<Post[]> {
-    return this._apiService.get(this._baseAPIControl);
+  getBriefPosts(): Observable<Post[]> {
+    return this._apiService.get(this._baseAPIControl + 'getBriefPosts');
+  }
+
+  getPostContent(id: number): Observable<any> {
+    return this._apiService.get(this._baseAPIControl + id + '/getContent');
   }
 }

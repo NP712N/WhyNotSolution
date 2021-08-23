@@ -6,13 +6,20 @@
   overflow-y: scroll;
   
   .home-page-header {
-    top: 0;
+    top: 5px;
     height: 60px;
-    width: 100%;
+    width: 98%;
     position: sticky;
     z-index: 1;
     box-shadow: 0 2px 5px 0 rgb(52 47 51 / 63%);
     background-color: #ffffff;
+    border-radius: 4px;
+    opacity: 0.8;
+  }
+
+  .home-page-header:hover {
+    opacity: 1;
+    transition: 0.3s;
   }
 
   .home-page-content {

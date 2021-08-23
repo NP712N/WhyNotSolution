@@ -10,20 +10,11 @@ import { BaseComponent } from 'src/app/shared/component/base/base.component';
 })
 export class HomePageComponent extends BaseComponent implements OnInit {
 
-  dataSource: any;
-
-  constructor(private readonly postService: PostService) {
+  constructor() {
     super();
   }
 
   ngOnInit(): void {
-    this.execute(this.postService.getPosts())
-      .pipe(
-        finalize(() => {
-        }))
-      .subscribe(dataResponse => {
-        this.dataSource = dataResponse;
-      });
   }
 
 }

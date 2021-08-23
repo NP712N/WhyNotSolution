@@ -1,5 +1,10 @@
 export class Post {
-  Id: number;
-  Title: string;
-  Content: number;
+  id: number;
+  title: string;
+  createDate: Date;
+  image: any;
+  isAnonymous: boolean;
+  lastModify: Date;
+  postByUserId: 1;
+  content: string;
 }

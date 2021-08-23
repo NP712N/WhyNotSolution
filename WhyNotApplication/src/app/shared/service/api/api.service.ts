@@ -15,7 +15,7 @@ export class ApiService {
   }
 
   get(url: string, httpOptions?: any): Observable<any> {
-    return this._http.get(this._baseURL + url).pipe(delay(1500), catchError(this._handleError));
+    return this._http.get(this._baseURL + url).pipe(catchError(this._handleError));
   }
 
   private _handleError(error: HttpErrorResponse) {

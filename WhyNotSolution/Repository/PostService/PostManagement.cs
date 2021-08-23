@@ -47,6 +47,13 @@ namespace WhyNotSolution.Repository.PostService {
             return result;
         }
 
+        public ICollection<PostBriefEntity> GetBriefPosts() {
+            var posts = SolutionDbContext.Posts.OrderBy(r => r.CreatedDate).ToList();
+            var result = posts.Select(post => new PostBriefEntity(post)).ToList();
+
+            return result;
+        }
+
         public PostEntity GetById(int id) {
             var post = SolutionDbContext.Posts.FirstOrDefault(p => p.Id == id);
             return new PostEntity(SolutionDbContext.Posts.FirstOrDefault(p => p.Id == id));
@@ -88,6 +95,28 @@ namespace WhyNotSolution.Repository.PostService {
 
         private bool Save() {
             return SolutionDbContext.SaveChanges() < 0 ? false : true;
+        }
+
+        public PostBriefEntity GetBriefPost(int Id) {
+            var post = SolutionDbContext.Posts.FirstOrDefault(p => p.Id == Id);
+
+            return post != null
+                ? new PostBriefEntity() {
+                    Id = post.Id,
+                    Title = post.Title,
+                    CreatedDate = post.CreatedDate,
+                    Image = post.Image,
+                    IsAnonymous = post.IsAnonymous,
+                    PostByUserId = post.User?.Id,
+                    LastModify = post.LastModify
+                }
+                : null;
+        }
+
+        public string GetContent(int Id) {
+            var post = SolutionDbContext.Posts.FirstOrDefault(s => s.Id == Id);
+
+            return post !=null ? post.Content : null;
         }
     }
 }
